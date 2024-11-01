@@ -275,14 +275,14 @@
                 updates[`users/${targetUserId}/soldiers`] = 50; // Reset defender's soldiers
                 updates[`users/${targetUserId}/health`] = 100; // Reset defender's health
 
-                attackerLog = [`You defeated ${targetUser.username}! Gained 50 soldiers and recovered 50 health.`];
-                defenderLog = [`You were defeated by ${currentUserData.username}! Your soldiers and health have been reset.`];
+                attackerLog = [`Conquistaste a ${targetUser.username}! Ganas 50 soldados y recobras 50 de salud.`];
+                defenderLog = [`Haz sido eliminado por ${currentUserData.username}! Tus soldados y salud se regeneran.`];
             } else {
                 // Defender takes health damage
                 updates[`users/${targetUserId}/health`] = updatedHealth;
                 
                 attackerLog = [`You attacked ${targetUser.username}'s base directly! Dealt ${healthDamage} damage to their health.`];
-                defenderLog = [`${currentUserData.username} attacked your base! You took ${healthDamage} damage to health.`];
+                defenderLog = [`${currentUserData.username} ataco tu base! a hecho ${healthDamage} de daño a tu salud.`];
             }
         } else {
             // Normal combat - both sides lose soldiers
@@ -296,7 +296,7 @@
             updates[`users/${targetUserId}/soldiers`] = updatedDefenderSoldiers;
 
             attackerLog = [`You attacked ${targetUser.username}. Lost ${attackerLoss} soldiers, eliminated ${defenderLoss} enemy soldiers.`];
-            defenderLog = [`${currentUserData.username} attacked you! You lost ${defenderLoss} soldiers, they lost ${attackerLoss} soldiers.`];
+            defenderLog = [`${currentUserData.username} te ha atacado! Has perdido ${defenderLoss} soldados, el perdio ${attackerLoss} soldados.`];
         }
 
         // Add previous battle logs
